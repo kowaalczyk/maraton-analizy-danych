@@ -1,0 +1,17 @@
+version:  '2'
+services:
+  datascience-notebook:
+      image: jupyter/datascience-notebook
+      ports:
+        - "8888:8888"
+
+      volumes:
+        - "./datasets:/home/jovyan/datasets"
+        - "./src:/home/jovyan/src"
+  pgadmin:
+      image: dpage/pgadmin4
+      ports: 
+        - "80:80"
+      environment:
+        -  PGADMIN_DEFAULT_EMAIL=user@domain.com
+        -  PGADMIN_DEFAULT_PASSWORD=SuperSecret
